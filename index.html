@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perle.xyz Multi-Page Feedback Tool</title>
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            height: 100%;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .option-hover:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-out {
+            animation: fadeOut 0.3s ease-out forwards;
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="gradient-bg min-h-full">
+  <div class="min-h-full py-8 px-4">
+   <div class="max-w-3xl mx-auto"><!-- Header -->
+    <div class="text-center mb-8 slide-in">
+     <h1 id="main-title" class="text-4xl font-bold text-white mb-4">Perle.xyz Website Feedback</h1>
+     <p id="subtitle" class="text-xl text-purple-100">Help us improve the Perle.xyz website with your valuable feedback</p>
+     <div class="mt-4 text-white/80"><span class="text-sm">🌐 Website: </span> <a href="https://www.perle.xyz/" target="_blank" rel="noopener noreferrer" class="text-yellow-300 hover:text-yellow-200 underline">perle.xyz</a>
+     </div>
+    </div><!-- Progress Bar -->
+    <div class="bg-white/20 rounded-full h-3 mb-8">
+     <div id="progress-bar" class="progress-bar bg-gradient-to-r from-yellow-400 to-orange-500 h-3 rounded-full" style="width: 20%"></div>
+    </div><!-- Question Pages -->
+    <div id="question-container" class="bg-white rounded-2xl card-shadow p-8 mb-6 slide-in"><!-- Question 1 -->
+     <div id="question-1" class="question-page">
+      <div class="text-center mb-6">
+       <div class="text-4xl mb-4">
+        ✨
+       </div>
+       <h2 class="text-2xl font-bold text-gray-800 mb-2">Question 1 of 5</h2>
+       <h3 class="text-xl font-semibold text-gray-700">How do you find the visual design and branding of Perle.xyz?</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"><button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Excellent and Modern">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          🌟
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Excellent and Modern
+          </div>
+          <div class="text-sm text-gray-600">
+           Outstanding visual appeal
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Good and Professional">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          👔
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Good and Professional
+          </div>
+          <div class="text-sm text-gray-600">
+           Well-designed and clean
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Average">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          😐
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Average
+          </div>
+          <div class="text-sm text-gray-600">
+           Acceptable but not impressive
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Needs Improvement">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          🔧
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Needs Improvement
+          </div>
+          <div class="text-sm text-gray-600">
+           Could be much better
+          </div>
+         </div>
+        </div></button>
+      </div>
+     </div><!-- Question 2 -->
+     <div id="question-2" class="question-page hidden">
+      <div class="text-center mb-6">
+       <div class="text-4xl mb-4">
+        💡
+       </div>
+       <h2 class="text-2xl font-bold text-gray-800 mb-2">Question 2 of 5</h2>
+       <h3 class="text-xl font-semibold text-gray-700">How clear is the information about Perle.xyz's services/products?</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"><button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Very Clear and Understandable">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          🎯
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Very Clear and Understandable
+          </div>
+          <div class="text-sm text-gray-600">
+           Everything is well explained
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Mostly Clear">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          👍
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Mostly Clear
+          </div>
+          <div class="text-sm text-gray-600">
+           Generally understandable
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Somewhat Unclear">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          🤔
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Somewhat Unclear
+          </div>
+          <div class="text-sm text-gray-600">
+           Confusing in some areas
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Very Confusing">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          ❓
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Very Confusing
+          </div>
+          <div class="text-sm text-gray-600">
+           Hard to understand
+          </div>
+         </div>
+        </div></button>
+      </div>
+     </div><!-- Question 3 -->
+     <div id="question-3" class="question-page hidden">
+      <div class="text-center mb-6">
+       <div class="text-4xl mb-4">
+        🚀
+       </div>
+       <h2 class="text-2xl font-bold text-gray-800 mb-2">Question 3 of 5</h2>
+       <h3 class="text-xl font-semibold text-gray-700">How would you rate the website's user experience (UX)?</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"><button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Excellent and Smooth">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          ⚡
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Excellent and Smooth
+          </div>
+          <div class="text-sm text-gray-600">
+           Perfect navigation experience
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Good">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          ✅
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Good
+          </div>
+          <div class="text-sm text-gray-600">
+           Easy to use overall
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Average">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          😐
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Average
+          </div>
+          <div class="text-sm text-gray-600">
+           Functional but not great
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Poor">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          😞
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Poor
+          </div>
+          <div class="text-sm text-gray-600">
+           Difficult to navigate
+          </div>
+         </div>
+        </div></button>
+      </div>
+     </div><!-- Question 4 -->
+     <div id="question-4" class="question-page hidden">
+      <div class="text-center mb-6">
+       <div class="text-4xl mb-4">
+        🏆
+       </div>
+       <h2 class="text-2xl font-bold text-gray-800 mb-2">Question 4 of 5</h2>
+       <h3 class="text-xl font-semibold text-gray-700">How trustworthy and professional does Perle.xyz appear?</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"><button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Highly Trustworthy">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          🛡️
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Highly Trustworthy
+          </div>
+          <div class="text-sm text-gray-600">
+           Very professional appearance
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Trustworthy">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          🤝
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Trustworthy
+          </div>
+          <div class="text-sm text-gray-600">
+           Seems reliable
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Questionable">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          🤨
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Questionable
+          </div>
+          <div class="text-sm text-gray-600">
+           Some doubts about credibility
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Not Trustworthy">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          ❌
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Not Trustworthy
+          </div>
+          <div class="text-sm text-gray-600">
+           Lacks credibility
+          </div>
+         </div>
+        </div></button>
+      </div>
+     </div><!-- Question 5 -->
+     <div id="question-5" class="question-page hidden">
+      <div class="text-center mb-6">
+       <div class="text-4xl mb-4">
+        💯
+       </div>
+       <h2 class="text-2xl font-bold text-gray-800 mb-2">Question 5 of 5</h2>
+       <h3 class="text-xl font-semibold text-gray-700">Would you be interested in using Perle.xyz's services?</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"><button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Definitely Interested">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          🎯
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Definitely Interested
+          </div>
+          <div class="text-sm text-gray-600">
+           Would love to try it
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Probably Interested">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          🤷
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Probably Interested
+          </div>
+          <div class="text-sm text-gray-600">
+           Might give it a try
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Undecided">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          🤔
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Undecided
+          </div>
+          <div class="text-sm text-gray-600">
+           Need more information
+          </div>
+         </div>
+        </div></button> <button class="option-btn option-hover bg-gray-50 rounded-lg p-6 border-2 border-transparent hover:border-purple-300 transition-all text-left" data-value="Not Interested">
+        <div class="flex items-center">
+         <div class="text-2xl mr-4">
+          😔
+         </div>
+         <div>
+          <div class="font-semibold text-gray-800">
+           Not Interested
+          </div>
+          <div class="text-sm text-gray-600">
+           Not for me
+          </div>
+         </div>
+        </div></button>
+      </div>
+     </div><!-- Navigation -->
+     <div class="text-center"><button id="next-btn" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"> <span id="next-text">Next Question</span> <span id="loading-spinner" class="hidden ml-2">
+        <svg class="animate-spin h-5 w-5 inline" viewbox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle> <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg></span> </button>
+     </div>
+    </div><!-- Thank You Page -->
+    <div id="thank-you" class="hidden bg-white rounded-2xl card-shadow p-8 text-center slide-in">
+     <div class="text-6xl mb-4">
+      🎉
+     </div>
+     <h2 class="text-3xl font-bold text-gray-800 mb-4">Thank You!</h2>
+     <p id="thank-you-text" class="text-lg text-gray-600 mb-6">Thank you for your valuable feedback about Perle.xyz. Your input will help improve their website and services.</p><button id="restart-btn" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors"> Take Survey Again </button>
+    </div><!-- Vote Count Display -->
+    <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6 text-center text-white">
+     <h3 class="text-lg font-semibold mb-2">Total Responses</h3>
+     <div class="text-3xl font-bold pulse-animation" id="vote-count">
+      0
+     </div>
+     <p class="text-sm text-white/80 mt-2">Feedback collected for Perle.xyz</p>
+    </div>
+   </div>
+  </div>
+  <script>
+        let currentRecordCount = 0;
+        let voterId = null;
+        let currentQuestion = 1;
+        let selectedAnswer = null;
+        let answers = {};
+
+        // Generate unique voter ID
+        function generateVoterId() {
+            return 'voter_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        // Default configuration
+        const defaultConfig = {
+            main_title: "Perle.xyz Website Feedback",
+            subtitle: "Help us improve the Perle.xyz website with your valuable feedback",
+            next_button_text: "Next Question",
+            thank_you_message: "Thank you for your valuable feedback about Perle.xyz. Your input will help improve their website and services.",
+            background_color: "#667eea",
+            surface_color: "#ffffff",
+            text_color: "#1f2937",
+            primary_action_color: "#7c3aed",
+            secondary_action_color: "#6366f1",
+            font_family: "system-ui",
+            font_size: 16
+        };
+
+        // Questions data
+        const questions = [
+            {
+                id: "q1",
+                text: "How do you find the visual design and branding of Perle.xyz?",
+                options: ["Excellent and Modern", "Good and Professional", "Average", "Needs Improvement"]
+            },
+            {
+                id: "q2", 
+                text: "How clear is the information about Perle.xyz's services/products?",
+                options: ["Very Clear and Understandable", "Mostly Clear", "Somewhat Unclear", "Very Confusing"]
+            },
+            {
+                id: "q3",
+                text: "How would you rate the website's user experience (UX)?",
+                options: ["Excellent and Smooth", "Good", "Average", "Poor"]
+            },
+            {
+                id: "q4",
+                text: "How trustworthy and professional does Perle.xyz appear?",
+                options: ["Highly Trustworthy", "Trustworthy", "Questionable", "Not Trustworthy"]
+            },
+            {
+                id: "q5",
+                text: "Would you be interested in using Perle.xyz's services?",
+                options: ["Definitely Interested", "Probably Interested", "Undecided", "Not Interested"]
+            }
+        ];
+
+        // Data handler for SDK
+        const dataHandler = {
+            onDataChanged(data) {
+                currentRecordCount = data.length;
+                document.getElementById('vote-count').textContent = currentRecordCount;
+            }
+        };
+
+        // Initialize Data SDK
+        async function initializeDataSDK() {
+            if (window.dataSdk) {
+                const result = await window.dataSdk.init(dataHandler);
+                if (!result.isOk) {
+                    console.error("Failed to initialize data SDK");
+                }
+            }
+        }
+
+        // Handle option selection
+        function handleOptionSelection() {
+            const optionBtns = document.querySelectorAll('.option-btn');
+            optionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove selection from all options in current question
+                    const currentQuestionElement = document.getElementById(`question-${currentQuestion}`);
+                    const allOptions = currentQuestionElement.querySelectorAll('.option-btn');
+                    allOptions.forEach(option => {
+                        option.classList.remove('border-purple-500', 'bg-purple-50');
+                    });
+
+                    // Add selection to clicked option
+                    this.classList.add('border-purple-500', 'bg-purple-50');
+                    selectedAnswer = this.dataset.value;
+                    
+                    // Enable next button
+                    document.getElementById('next-btn').disabled = false;
+                });
+            });
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = (currentQuestion / 5) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+        }
+
+        // Show next question or finish
+        async function showNextQuestion() {
+            if (!selectedAnswer) {
+                showInlineMessage("Please select an option before continuing.", "error");
+                return;
+            }
+
+            // Save current answer
+            const questionData = questions[currentQuestion - 1];
+            answers[questionData.id] = {
+                question_text: questionData.text,
+                selected_option: selectedAnswer
+            };
+
+            if (currentQuestion < 5) {
+                // Show loading state
+                const nextBtn = document.getElementById('next-btn');
+                const nextText = document.getElementById('next-text');
+                const loadingSpinner = document.getElementById('loading-spinner');
+                
+                nextBtn.disabled = true;
+                nextText.textContent = 'Loading...';
+                loadingSpinner.classList.remove('hidden');
+
+                // Save current answer to database
+                await saveAnswer(questionData.id, questionData.text, selectedAnswer);
+
+                // Hide current question with animation
+                const currentQuestionElement = document.getElementById(`question-${currentQuestion}`);
+                currentQuestionElement.classList.add('fade-out');
+                
+                setTimeout(() => {
+                    currentQuestionElement.classList.add('hidden');
+                    currentQuestionElement.classList.remove('fade-out');
+                    
+                    // Show next question
+                    currentQuestion++;
+                    const nextQuestionElement = document.getElementById(`question-${currentQuestion}`);
+                    nextQuestionElement.classList.remove('hidden');
+                    nextQuestionElement.classList.add('slide-in');
+                    
+                    // Update progress bar
+                    updateProgressBar();
+                    
+                    // Reset selection
+                    selectedAnswer = null;
+                    nextBtn.disabled = true;
+                    nextText.textContent = currentQuestion === 5 ? 'Submit Feedback' : defaultConfig.next_button_text;
+                    loadingSpinner.classList.add('hidden');
+                    
+                    // Re-attach event listeners for new question
+                    handleOptionSelection();
+                }, 300);
+            } else {
+                // Final submission
+                await submitFinalAnswer();
+            }
+        }
+
+        // Save individual answer
+        async function saveAnswer(questionId, questionText, answer) {
+            if (currentRecordCount >= 999) {
+                showInlineMessage("Response limit reached. Please try again later.", "error");
+                return;
+            }
+
+            try {
+                if (!voterId) {
+                    voterId = generateVoterId();
+                }
+
+                const voteData = {
+                    question_id: questionId,
+                    question_text: questionText,
+                    selected_option: answer,
+                    voter_id: voterId,
+                    timestamp: new Date().toISOString()
+                };
+
+                const result = await window.dataSdk.create(voteData);
+                if (!result.isOk) {
+                    throw new Error('Failed to save answer');
+                }
+            } catch (error) {
+                showInlineMessage("Failed to save response. Please try again.", "error");
+            }
+        }
+
+        // Submit final answer and show thank you
+        async function submitFinalAnswer() {
+            const nextBtn = document.getElementById('next-btn');
+            const nextText = document.getElementById('next-text');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            
+            nextBtn.disabled = true;
+            nextText.textContent = 'Submitting...';
+            loadingSpinner.classList.remove('hidden');
+
+            try {
+                // Save final answer
+                const questionData = questions[currentQuestion - 1];
+                await saveAnswer(questionData.id, questionData.text, selectedAnswer);
+
+                // Show thank you page
+                document.getElementById('question-container').classList.add('hidden');
+                document.getElementById('thank-you').classList.remove('hidden');
+            } catch (error) {
+                showInlineMessage("Failed to submit feedback. Please try again.", "error");
+                nextBtn.disabled = false;
+                nextText.textContent = 'Submit Feedback';
+                loadingSpinner.classList.add('hidden');
+            }
+        }
+
+        // Show inline message
+        function showInlineMessage(message, type) {
+            const existingMessage = document.querySelector('.inline-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `inline-message p-4 rounded-lg mb-4 ${type === 'error' ? 'bg-red-100 text-red-700 border border-red-300' : 'bg-green-100 text-green-700 border border-green-300'}`;
+            messageDiv.textContent = message;
+
+            const container = document.getElementById('question-container');
+            container.insertBefore(messageDiv, container.firstChild);
+
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 5000);
+        }
+
+        // Restart survey
+        function restartSurvey() {
+            currentQuestion = 1;
+            selectedAnswer = null;
+            answers = {};
+            voterId = generateVoterId();
+
+            // Hide thank you page
+            document.getElementById('thank-you').classList.add('hidden');
+            document.getElementById('question-container').classList.remove('hidden');
+
+            // Show first question
+            for (let i = 1; i <= 5; i++) {
+                const questionElement = document.getElementById(`question-${i}`);
+                if (i === 1) {
+                    questionElement.classList.remove('hidden');
+                } else {
+                    questionElement.classList.add('hidden');
+                }
+
+                // Reset selections
+                const options = questionElement.querySelectorAll('.option-btn');
+                options.forEach(option => {
+                    option.classList.remove('border-purple-500', 'bg-purple-50');
+                });
+            }
+
+            // Reset progress bar
+            updateProgressBar();
+
+            // Reset next button
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.disabled = true;
+            document.getElementById('next-text').textContent = defaultConfig.next_button_text;
+        }
+
+        // Element SDK configuration
+        async function onConfigChange(config) {
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseSize = config.font_size || defaultConfig.font_size;
+            const baseFontStack = 'system-ui, -apple-system, sans-serif';
+
+            // Update text content
+            document.getElementById('main-title').textContent = config.main_title || defaultConfig.main_title;
+            document.getElementById('subtitle').textContent = config.subtitle || defaultConfig.subtitle;
+            document.getElementById('next-text').textContent = config.next_button_text || defaultConfig.next_button_text;
+            document.getElementById('thank-you-text').textContent = config.thank_you_message || defaultConfig.thank_you_message;
+
+            // Update colors
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const surfaceColor = config.surface_color || defaultConfig.surface_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+            const secondaryActionColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+
+            document.body.style.background = `linear-gradient(135deg, ${backgroundColor} 0%, ${secondaryActionColor} 100%)`;
+            
+            const whiteCards = document.querySelectorAll('.bg-white');
+            whiteCards.forEach(card => {
+                card.style.backgroundColor = surfaceColor;
+            });
+
+            const textElements = document.querySelectorAll('h1, h2, h3, p, span, div');
+            textElements.forEach(element => {
+                if (!element.classList.contains('text-white') && !element.classList.contains('text-purple-100') && !element.classList.contains('text-yellow-300')) {
+                    element.style.color = textColor;
+                }
+            });
+
+            const nextButton = document.getElementById('next-btn');
+            nextButton.style.background = `linear-gradient(to right, ${primaryActionColor}, ${secondaryActionColor})`;
+
+            const restartButton = document.getElementById('restart-btn');
+            restartButton.style.backgroundColor = primaryActionColor;
+
+            // Update fonts
+            document.getElementById('main-title').style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.getElementById('main-title').style.fontSize = `${baseSize * 2.5}px`;
+            
+            document.getElementById('subtitle').style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.getElementById('subtitle').style.fontSize = `${baseSize * 1.25}px`;
+
+            const questionTitles = document.querySelectorAll('h2, h3');
+            questionTitles.forEach(title => {
+                title.style.fontFamily = `${customFont}, ${baseFontStack}`;
+                title.style.fontSize = `${baseSize * 1.25}px`;
+            });
+
+            const bodyText = document.querySelectorAll('p, span, div, button');
+            bodyText.forEach(text => {
+                text.style.fontFamily = `${customFont}, ${baseFontStack}`;
+                text.style.fontSize = `${baseSize}px`;
+            });
+        }
+
+        // Initialize Element SDK
+        async function initializeElementSDK() {
+            if (window.elementSdk) {
+                await window.elementSdk.init({
+                    defaultConfig,
+                    onConfigChange,
+                    mapToCapabilities: (config) => ({
+                        recolorables: [
+                            {
+                                get: () => config.background_color || defaultConfig.background_color,
+                                set: (value) => {
+                                    config.background_color = value;
+                                    window.elementSdk.setConfig({ background_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.surface_color || defaultConfig.surface_color,
+                                set: (value) => {
+                                    config.surface_color = value;
+                                    window.elementSdk.setConfig({ surface_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.text_color || defaultConfig.text_color,
+                                set: (value) => {
+                                    config.text_color = value;
+                                    window.elementSdk.setConfig({ text_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                                set: (value) => {
+                                    config.primary_action_color = value;
+                                    window.elementSdk.setConfig({ primary_action_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                                set: (value) => {
+                                    config.secondary_action_color = value;
+                                    window.elementSdk.setConfig({ secondary_action_color: value });
+                                }
+                            }
+                        ],
+                        borderables: [],
+                        fontEditable: {
+                            get: () => config.font_family || defaultConfig.font_family,
+                            set: (value) => {
+                                config.font_family = value;
+                                window.elementSdk.setConfig({ font_family: value });
+                            }
+                        },
+                        fontSizeable: {
+                            get: () => config.font_size || defaultConfig.font_size,
+                            set: (value) => {
+                                config.font_size = value;
+                                window.elementSdk.setConfig({ font_size: value });
+                            }
+                        }
+                    }),
+                    mapToEditPanelValues: (config) => new Map([
+                        ["main_title", config.main_title || defaultConfig.main_title],
+                        ["subtitle", config.subtitle || defaultConfig.subtitle],
+                        ["next_button_text", config.next_button_text || defaultConfig.next_button_text],
+                        ["thank_you_message", config.thank_you_message || defaultConfig.thank_you_message]
+                    ])
+                });
+            }
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', async function() {
+            await initializeDataSDK();
+            await initializeElementSDK();
+            
+            handleOptionSelection();
+            updateProgressBar();
+            
+            document.getElementById('next-btn').addEventListener('click', showNextQuestion);
+            document.getElementById('restart-btn').addEventListener('click', restartSurvey);
+            
+            // Generate initial voter ID
+            voterId = generateVoterId();
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'996090d1e7f0ba4f',t:'MTc2MTcxODgxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
